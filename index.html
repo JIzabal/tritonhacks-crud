@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tritonhacks crud</title>
+</head>
+<body>
+    <h1>Tritonhacks Crud</h1>
+    <button>Add</button>
+    <dialog>
+        <!-- Look into method dialog later-->
+        <form method="dialog">
+            <!-- 
+                Can associate label with input by giving the for and id 
+                attributes the same names. Can also implicitly associate 
+                label and input by nesting the label inside of the input
+            -->
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+            <label for="summary">Summary</label>
+            <input type="text" name="summary" id="summary">
+            <button type="reset">Cancel</button>
+            <button type="button">OK</button>
+        </form>
+    </dialog>
+    <script>
+        document.querySelector('dialog').showModal();
+    </script>
+</body>
+</html>
