@@ -19,3 +19,23 @@ function reset(event) {
     document.querySelector('dialog').close();
 }
 
+// Ok button closes dialog and saves values
+// saves into JS object literal and save this to an array of posts
+// display that post on a page
+// use queryselector to get input elements (google this)
+/// TODO: change quotes to single quotes
+const okBtn = document.querySelector("#ok");
+okBtn.addEventListener("click", ok);
+let allPosts = [];
+function ok(event) {
+    let output = document.querySelector('#post-list');
+    console.log(output);
+    // object literal stores the values
+    let post = {
+        title: document.querySelector('#title').value,
+        summary: document.querySelector('#summary').value
+    };
+    allPosts.push(post);
+    console.log(post);
+    console.log(allPosts);
+}
