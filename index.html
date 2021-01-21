@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Tritonhacks Crud</h1>
-    <button>Add</button>
+    <button id="add">Add</button>
     <dialog>
         <!-- Look into method dialog later-->
         <form method="dialog">
@@ -21,9 +21,17 @@
             <label for="summary">Summary</label>
             <input type="text" name="summary" id="summary">
             <button type="reset" id="reset">Cancel</button>
-            <button type="button">OK</button>
+            <button type="button" id="ok">OK</button>
         </form>
     </dialog>
+    <output id="post-list">
+        <div>
+            <h2></h2>
+            <p></p>
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>
+    </output>
     <script src="Screen.js">
     </script>
 </body>
