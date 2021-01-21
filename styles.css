@@ -1,0 +1,10 @@
+/* For documentation, take care of CSS before talking about .JS 
+*/
+
+div {
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
