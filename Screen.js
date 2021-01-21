@@ -29,13 +29,39 @@ okBtn.addEventListener("click", ok);
 let allPosts = [];
 function ok(event) {
     let output = document.querySelector('#post-list');
-    console.log(output);
     // object literal stores the values
     let post = {
         title: document.querySelector('#title').value,
         summary: document.querySelector('#summary').value
     };
     allPosts.push(post);
-    console.log(post);
-    console.log(allPosts);
+
+    // Close the dialog box
+    reset();
+    // Clear the queries
+    document.querySelector('#title').value = '';
+    document.querySelector('#summary').value = '';
+
+    let postOut = 
+        `<div>
+            <h2>${post.title}</h2>
+            <p>${post.summary}</p>
+            <button><i class="fas fa-edit"></i> Edit</button>
+            <button onclick=\"deletePost(this);\"><i class="fas fa-trash"></i> Delete</button>
+        </div>`;
+        // need to escape characters
+
+    // output.appendChild(postOut);
+    output.insertAdjacentHTML('beforeend', postOut);
+}
+
+// Delete
+function deletePost(event) {
+    console.log(event);
+    event.parentNode.remove();
+}
+
+// Edit
+function editPost(event) {
+    // Bring up dialog box which shows all previous input to easily edit
 }
