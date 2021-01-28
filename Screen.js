@@ -44,8 +44,8 @@ function ok(event) {
 
     let postOut = 
         `<div>
-            <h2>${post.title}</h2>
-            <p>${post.summary}</p>
+            <h2 contenteditable="false">${post.title}</h2>
+            <p contenteditable="false">${post.summary}</p>
             <button onclick=\"editPost(this);\"><i class="fas fa-edit"></i> Edit</button>
             <button onclick=\"deletePost(this);\"><i class="fas fa-trash"></i> Delete</button>
         </div>`;
@@ -63,27 +63,18 @@ function deletePost(event) {
 
 // Edit
 function editPost(event) {
-    // Bring up dialog box which shows all previous input to easily edit
-    document.querySelector('#dialog-edit').showModal();
-    let post = {
-        // refer to the `event` object gets the values from the calling section
-        // #TODO CHECK THIS scoped selection 
-        title: event.parentNode.querySelector('h2').textContent,
-        summary: event.parentNode.querySelector('p').textContent
-    };
-    // Bring up previous values
-    document.querySelector('#title-edit').value = post.title;
-    document.querySelector('#summary-edit').value = post.summary;
+    event.parentNode.children[0].toggleAttribute('contenteditable');
+    event.parentNode.children[1].toggleAttribute('contenteditable');
+    // toggle class styling
+    event.parentNode.children[0].classList.toggle('editable');
+    event.parentNode.children[1].classList.toggle('editable');
 }
 
-// Button functionality for edit post
-const cancelEditBtn = document.querySelector('#reset-edit');
-// Anonymous function used here
-cancelEditBtn.addEventListener("click", () => document.querySelector('#dialog-edit').close());
+// // Button functionality for edit post
+// const cancelEditBtn = document.querySelector('#reset-edit');
+// // Anonymous function used here
+// cancelEditBtn.addEventListener("click", () => document.querySelector('#dialog-edit').close());
 
-const okEditBtn = document.querySelector('#ok-edit');
-okEditBtn.addEventListener("click", okEdit);
+// const okEditBtn = document.querySelector('#ok-edit');
+// okEditBtn.addEventListener("click", okEdit);
 
-function okEdit(event) {
-    
-}
