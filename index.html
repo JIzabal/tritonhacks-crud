@@ -19,13 +19,15 @@
                 label and input by nesting the label inside of the input
             -->
             <label for="title">Title</label>
+            <br>
             <input type="text" name="title" id="title">
+            <br>
             <label for="summary">Summary</label>
-            <input type="text" name="summary" id="summary">
-            <textarea readonly>"Write something here" #Currently uneditable</textarea>
+            <br>
+            <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
+            <br>
             <button type="reset" id="reset">Cancel</button>
             <button type="button" id="ok">OK</button>
-            
         </form>
     </dialog>
     <dialog id="dialog-edit">
@@ -49,11 +51,9 @@
         <!--This is where the posts go-->
         <div>
             <!--This is an sample post to speed up the debugging/testing process-->
-            <h2 contenteditable="false">Example Title</h2>
-            <p contenteditable="false">Example Summary</p>
-            <!--Consider using <textarea> tag for writing/editing the summary and
-                changing this back to a normal textbox when done-->
-            <textarea readonly>"Write something here" #Currently uneditable</textarea>
+            <h2>Example Title</h2>
+            <p>Example Summary</p>
+            <br>
             <button onclick="editPost(this);"><i class="fas fa-edit"></i> Edit</button>
             <button onclick="deletePost(this);"><i class="fas fa-trash"></i> Delete</button>
         </div>
