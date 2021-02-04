@@ -44,8 +44,9 @@ function ok(event) {
 
     let postOut = 
         `<div>
-            <h2 contenteditable="false">${post.title}</h2>
-            <p contenteditable="false">${post.summary}</p>
+            <h2>${post.title}</h2>
+            <p>${post.summary}</p>
+            <br>
             <button onclick=\"editPost(this);\"><i class="fas fa-edit"></i> Edit</button>
             <button onclick=\"deletePost(this);\"><i class="fas fa-trash"></i> Delete</button>
         </div>`;
@@ -63,11 +64,31 @@ function deletePost(event) {
 
 // Edit
 function editPost(event) {
-    event.parentNode.children[0].toggleAttribute('contenteditable');
-    event.parentNode.children[1].toggleAttribute('contenteditable');
+    // Edit title
     // toggle class styling
     event.parentNode.children[0].classList.toggle('editable');
-    event.parentNode.children[1].classList.toggle('editable');
+    event.parentNode.children[0].toggleAttribute('contenteditable');
+
+    // Edit summary
+    // Get old value
+    let summaryOld = event.parentNode.children[1].textContent;
+
+     
+    let newNode;
+    // Swap tag types
+    console.log(event.parentNode.children[1].tagName);
+    if (event.parentNode.children[1].tagName == 'P') {
+        newNode = document.createElement('textarea');
+    } else {
+        newNode = document.createElement('p');
+    }
+
+    // Ternary operator alternative to the above
+    // let newNode = event.parentNode.children[1].tagName == 'P' ? document.createElement('textarea') : document.createElement('p');
+   
+    event.parentNode.replaceChild(newNode, event.parentNode.children[1]);
+    // Add back in the old text value
+    event.parentNode.children[1].textContent = summaryOld;
 }
 
 // // Button functionality for edit post
