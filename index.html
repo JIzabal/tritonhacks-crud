@@ -58,7 +58,32 @@
             <button onclick="deletePost(this);"><i class="fas fa-trash"></i> Delete</button>
         </div>
     </output>
-    <script src="Screen.js">
+    <script src="Screen.js" type="module">
+    </script>
+    <script>
+        function display() {
+            let allPosts = JSON.parse(localStorage.getItem('data'));
+            allPosts = allPosts !== null ? allPosts : [];
+
+            console.log("displayed");
+
+            for (const post of allPosts) {
+                let output = document.querySelector('#post-list');
+                let postOut = 
+                    `<div>
+                        <h2>${post.title}</h2>
+                        <p>${post.summary}</p>
+                        <br>
+                        <button onclick=\"editPost(this);\"><i class="fas fa-edit"></i> Edit</button>
+                        <button onclick=\"deletePost(this);\"><i class="fas fa-trash"></i> Delete</button>
+                    </div>`;
+                    // need to escape characters
+
+                // output.appendChild(postOut);
+                output.insertAdjacentHTML('beforeend', postOut);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', display);
     </script>
 </body>
 </html>
