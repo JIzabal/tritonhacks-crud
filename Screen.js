@@ -1,6 +1,7 @@
 /**
  * This file is for powering all the events which affect the screen in some way
  */
+import {save, deletePost} from './Storage.js';
 
 // Add button opens dialog box
 const addBtn = document.querySelector('#add');
@@ -26,15 +27,14 @@ function reset(event) {
 /// TODO: change quotes to single quotes
 const okBtn = document.querySelector("#ok");
 okBtn.addEventListener("click", ok);
-let allPosts = [];
 function ok(event) {
     let output = document.querySelector('#post-list');
     // object literal stores the values
     let post = {
         title: document.querySelector('#title').value,
-        summary: document.querySelector('#summary').value
+        summary: document.querySelector('#summary').value,
+        id: new Date().getUTCMilliseconds()
     };
-    allPosts.push(post);
 
     // Close the dialog box
     reset();
@@ -54,12 +54,20 @@ function ok(event) {
 
     // output.appendChild(postOut);
     output.insertAdjacentHTML('beforeend', postOut);
+
+    save(post);
 }
 
 // Delete
 function deletePost(event) {
     console.log(event);
     event.parentNode.remove();
+    let post = {
+        // select the child
+        title: event.parentNode.querySelector('#title').value,
+        summary: event.parentNode.querySelector('#summary').value,
+        id: new Date().getUTCMilliseconds()
+    };
 }
 
 // Edit
@@ -91,6 +99,8 @@ function editPost(event) {
     event.parentNode.children[1].textContent = summaryOld;
 }
 
+
+
 // // Button functionality for edit post
 // const cancelEditBtn = document.querySelector('#reset-edit');
 // // Anonymous function used here
@@ -98,4 +108,3 @@ function editPost(event) {
 
 // const okEditBtn = document.querySelector('#ok-edit');
 // okEditBtn.addEventListener("click", okEdit);
-
