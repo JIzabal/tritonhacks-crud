@@ -28,4 +28,4 @@ function deletePost(post) {
     localStorage.setItem('data', JSON.stringify(allPosts));
 }
 
-export {save, deletePost};
+export { save, deletePost };
