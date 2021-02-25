@@ -32,7 +32,7 @@ function ok(event) {
     let post = {
         title: document.querySelector('#title').value,
         summary: document.querySelector('#summary').value,
-        id: (new Date().getUTCMilliseconds()).toString()
+        id: (new Date().getTime()).toString()
     };
     // Close the dialog box
     reset();
