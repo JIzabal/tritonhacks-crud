@@ -14,7 +14,6 @@ function init() {
     const okBtn = document.querySelector("#ok");
     okBtn.addEventListener("click", ok);
 
-
 }
 
 window.addEventListener('DOMContentLoaded', init);
