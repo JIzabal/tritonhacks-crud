@@ -32,9 +32,8 @@ function ok(event) {
     let post = {
         title: document.querySelector('#title').value,
         summary: document.querySelector('#summary').value,
-        id: new Date().getUTCMilliseconds()
+        id: (new Date().getUTCMilliseconds()).toString()
     };
-
     // Close the dialog box
     reset();
 
@@ -43,13 +42,13 @@ function ok(event) {
     document.querySelector('#summary').value = '';
 
     let postOut = 
-        `<div>
+        `<div id=\"${post.id}\">
             <h2>${post.title}</h2>
             <p>${post.summary}</p>
             <br>
             <button onclick=\"test()\">TEST</button>
             <button onclick=\"editPost(this)\"><i class="fas fa-edit"></i> Edit</button>
-            <button onclick=\"deletePost(this)\"><i class="fas fa-trash"></i> Delete</button>
+            <button onclick=\"deletePostDiv(this)\"><i class="fas fa-trash"></i> Delete</button>
         </div>`;
         // need to escape characters
 
@@ -60,7 +59,7 @@ function ok(event) {
 }
 
 
-// // Button functionality for edit post
+// // Button functionality for edit post with window (DEPRECATED)
 // const cancelEditBtn = document.querySelector('#reset-edit');
 // // Anonymous function used here
 // cancelEditBtn.addEventListener("click", () => document.querySelector('#dialog-edit').close());
