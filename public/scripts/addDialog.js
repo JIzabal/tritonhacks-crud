@@ -1,0 +1,56 @@
+/**
+ * This file is for powering all the events which affect the screen in some way
+ */
+
+import { save } from './storage.js';
+
+
+function showAddDialog(event) {
+    // Sets the dialog to open
+    document.querySelector('dialog').showModal();
+}
+
+function closeAddDialog(event) {
+    // Closes the dialog
+    document.querySelector('dialog').close();
+}
+
+/**
+ * 
+ * @param {*} event 
+ */
+function confirmAddDialog(event) {
+    let output = document.querySelector('#post-list');
+
+    // object literal stores the values
+    let post = {
+        title: document.querySelector('#title').value,
+        summary: document.querySelector('#summary').value,
+        id: (new Date().getTime()).toString()
+    };
+    // Close the dialog box
+    closeAddDialog();
+
+    // Clear the queries
+    document.querySelector('#title').value = '';
+    document.querySelector('#summary').value = '';
+
+    output.insertAdjacentHTML('beforeend', createPostObject(post));
+
+    save(post);
+}
+
+function createPostObject(post) {
+    let postOut = 
+        `<div id=\"${post.id}\">
+            <h2>${post.title}</h2>
+            <p>${post.summary}</p>
+            <br>
+            <button onclick=\"editPost(this)\"><i class="fas fa-edit"></i> Edit</button>
+            <button onclick=\"deletePostDiv(this)\"><i class="fas fa-trash"></i> Delete</button>
+        </div>`;
+        // need to escape characters
+    return postOut;
+}
+
+export { showAddDialog, closeAddDialog, confirmAddDialog, createPostObject};
