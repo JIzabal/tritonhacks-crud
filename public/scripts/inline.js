@@ -30,7 +30,9 @@ function deletePost(post) {
     // write a custom id for each id creation to compare
 
     for (i = 0; i < allPosts.length; i++) {
+        console.log(`post.id: ${post.id} allPosts[i].id: ${allPosts[i].id}`);
         if (post.id === allPosts[i].id) {
+            console.log("spliced");
             allPosts.splice(i, 1);
             break;
         }

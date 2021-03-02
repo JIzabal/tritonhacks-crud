@@ -60,7 +60,7 @@
     </output>
     <script src="scripts/inline.js"></script>
     <script src="scripts/main.js" type="module"></script>
-    <script src="scripts/screen.js">
+    <script>
         function display() {
             let allPosts = JSON.parse(localStorage.getItem('data'));
             allPosts = allPosts !== null ? allPosts : [];
@@ -70,7 +70,7 @@
             for (const post of allPosts) {
                 let output = document.querySelector('#post-list');
                 let postOut = 
-                    `<div>
+                    `<div id=\"${post.id}\">
                         <h2>${post.title}</h2>
                         <p>${post.summary}</p>
                         <br>

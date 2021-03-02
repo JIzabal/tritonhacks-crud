@@ -46,7 +46,6 @@ function ok(event) {
             <h2>${post.title}</h2>
             <p>${post.summary}</p>
             <br>
-            <button onclick=\"test()\">TEST</button>
             <button onclick=\"editPost(this)\"><i class="fas fa-edit"></i> Edit</button>
             <button onclick=\"deletePostDiv(this)\"><i class="fas fa-trash"></i> Delete</button>
         </div>`;
