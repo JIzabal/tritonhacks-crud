@@ -1,6 +1,29 @@
-div {
+article {
     border: 2px solid black;
     text-align: center;
     padding: 10px;
     margin: 10px;
+    flex-basis: 25%;
+}
+
+.editable {
+    border: 2px solid rgb(36, 74, 243);
+}
+
+output {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p {
+    text-align: left;
+}
+
+button {
+    cursor: pointer;   
+}
+
+button:hover {
+    background-color: blue;
+    color: aliceblue;
 }

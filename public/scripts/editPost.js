@@ -1,5 +1,5 @@
 // Edit
-function editPostDiv(event) {
+function editPostArticle(event) {
     // Edit title
     // toggle class styling
     event.parentNode.children[0].classList.toggle('editable');

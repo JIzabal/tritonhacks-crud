@@ -1,5 +1,5 @@
 // Delete
-function deletePostDiv(event) {
+function deletePostArticle(event) {
     let post = {
         // select the child
         title: event.parentNode.querySelector('h2').value,
