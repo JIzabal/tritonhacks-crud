@@ -2,9 +2,6 @@
  * This file is for powering all the events which affect the screen in some way
  */
 
-import { save } from './storage.js';
-
-
 function showAddDialog(event) {
     // Sets the dialog to open
     document.querySelector('dialog').showModal();
@@ -40,13 +37,23 @@ function confirmAddDialog(event) {
     save(post);
 }
 
+function save(post) {
+    let allPosts = JSON.parse(localStorage.getItem('data'));
+
+    allPosts = allPosts !== null ? allPosts : [];
+
+    allPosts.push(post);
+
+    localStorage.setItem('data', JSON.stringify(allPosts));
+}
+
 function createPostObject(post) {
     let postOut = 
         `<div id=\"${post.id}\">
             <h2>${post.title}</h2>
             <p>${post.summary}</p>
             <br>
-            <button onclick=\"editPost(this)\"><i class="fas fa-edit"></i> Edit</button>
+            <button onclick=\"editPostDiv(this)\"><i class="fas fa-edit"></i> Edit</button>
             <button onclick=\"deletePostDiv(this)\"><i class="fas fa-trash"></i> Delete</button>
         </div>`;
         // need to escape characters
