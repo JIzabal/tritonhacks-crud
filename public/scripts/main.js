@@ -1,18 +1,10 @@
-import {showAddDialog, closeAddDialog, confirmAddDialog, createPostObject} from './addDialog.js';
+import { addPost, createPostObject } from './addDialog.js';
 
 function init() {
 
-    // Add button opens dialog box
-    const addBtn = document.querySelector('#add');
-    addBtn.addEventListener("click", showAddDialog);
-
-    // Cancel button closes add dialog box
-    const cancelBtn = document.querySelector('#reset');
-    cancelBtn.addEventListener("click", closeAddDialog);
-
     // Ok button confirms addition of post
     const okBtn = document.querySelector("#ok");
-    okBtn.addEventListener("click", confirmAddDialog);
+    okBtn.addEventListener("click", addPost);
     
     display();
 }
