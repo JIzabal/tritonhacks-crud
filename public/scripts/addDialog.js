@@ -2,21 +2,11 @@
  * This file is for powering all the events which affect the screen in some way
  */
 
-function showAddDialog(event) {
-    // Sets the dialog to open
-    document.querySelector('dialog').showModal();
-}
-
-function closeAddDialog(event) {
-    // Closes the dialog
-    document.querySelector('dialog').close();
-}
-
 /**
  * 
  * @param {*} event 
  */
-function confirmAddDialog(event) {
+function addPost(event) {
     let output = document.querySelector('#post-list');
 
     // object literal stores the values
@@ -25,8 +15,6 @@ function confirmAddDialog(event) {
         summary: document.querySelector('#summary').value,
         id: (new Date().getTime()).toString()
     };
-    // Close the dialog box
-    closeAddDialog();
 
     // Clear the queries
     document.querySelector('#title').value = '';
@@ -60,4 +48,4 @@ function createPostObject(post) {
     return postOut;
 }
 
-export { showAddDialog, closeAddDialog, confirmAddDialog, createPostObject};
+export { addPost, createPostObject};
