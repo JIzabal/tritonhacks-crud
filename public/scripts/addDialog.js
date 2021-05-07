@@ -49,12 +49,12 @@ function save(post) {
 
 function createPostObject(post) {
     let postOut = 
-        `<article id=\"${post.id}\">
+        `<article id="${post.id}">
             <h2>${post.title}</h2>
             <p>${post.summary}</p>
             <br>
-            <button onclick=\"editPostArticle(this)\"><i class="fas fa-edit"></i> Edit</button>
-            <button onclick=\"deletePostArticle(this)\"><i class="fas fa-trash"></i> Delete</button>
+            <button onclick="editPostArticle(this)"><i class="fas fa-edit"></i> Edit</button>
+            <button onclick="deletePostArticle(this)"><i class="fas fa-trash"></i> Delete</button>
         </article>`;
         // need to escape characters
     return postOut;
