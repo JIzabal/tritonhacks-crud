@@ -9,27 +9,25 @@
 </head>
 <body>
     <h1>Tritonhacks Crud</h1>
-    <button id="add">Add</button>
-    <dialog>
-        <!-- Look into method dialog later-->
-        <form method="dialog">
-            <!-- 
-                Can associate label with input by giving the for and id 
-                attributes the same names. Can also implicitly associate 
-                label and input by nesting the label inside of the input
-            -->
-            <label for="title">Title</label>
-            <br>
-            <input type="text" name="title" id="title">
-            <br>
-            <label for="summary">Summary</label>
-            <br>
-            <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
-            <br>
-            <button type="reset" id="reset">Cancel</button>
-            <button type="button" id="ok">OK</button>
-        </form>
-    </dialog>
+    
+    <!-- Look into method dialog later-->
+    <form method="dialog">
+        <!-- 
+            Can associate label with input by giving the for and id 
+            attributes the same names. Can also implicitly associate 
+            label and input by nesting the label inside of the input
+        -->
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title" id="title">
+        <br>
+        <label for="summary">Summary</label>
+        <br>
+        <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
+        <br>
+        <button type="reset" id="reset">Cancel</button>
+        <button type="button" id="ok">OK</button>
+    </form>
     <output id="post-list">
         <!--This is where the posts go-->
     </output>
