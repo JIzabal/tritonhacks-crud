@@ -7,12 +7,12 @@ function createPost(event) {
 
     // Object literal stores the post values
     let post = {
+        id: (new Date().getTime()).toString(),
         title: document.querySelector('#title').value,
-        summary: document.querySelector('#summary').value,
-        id: (new Date().getTime()).toString()
+        summary: document.querySelector('#summary').value
     };
 
-    // Clear the queries
+    // Clear the form entries
     document.querySelector('#title').value = '';
     document.querySelector('#summary').value = '';
 
@@ -43,7 +43,7 @@ function savePost(post) {
  */
 function createPostHTML(post) {
 
-    let postOut = 
+    let postHTML = 
         `<article id="${post.id}">
             <h2>${post.title}</h2>
             <p>${post.summary}</p>
@@ -52,7 +52,7 @@ function createPostHTML(post) {
             <button onclick="deletePost(this)"><i class="fas fa-trash"></i> Delete</button>
         </article>`;
 
-    return postOut;
+    return postHTML;
 }
 
 export { createPost, createPostHTML };

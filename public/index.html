@@ -8,29 +8,26 @@
     <script src="https://kit.fontawesome.com/dfc18fddcc.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Tritonhacks Crud</h1>
+    <main>
+        <h1>Tritonhacks Crud</h1>
 
-    <!-- Look into method dialog later-->
-    <form method="dialog">
-        <!-- 
-            Can associate label with input by giving the for and id 
-            attributes the same names. Can also implicitly associate 
-            label and input by nesting the label inside of the input
-        -->
-        <label for="title">Title</label>
-        <br>
-        <input type="text" name="title" id="title">
-        <br>
-        <label for="summary">Summary</label>
-        <br>
-        <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
-        <br>
-        <button type="reset" id="reset">Cancel</button>
-        <button type="button" id="ok">OK</button>
-    </form>
-    <output id="post-list">
-        <!--This is where the posts go-->
-    </output>
+        <form>
+            <label for="title">Title</label>
+            <br>
+            <input type="text" name="title" id="title">
+            <br>
+            <label for="summary">Summary</label>
+            <br>
+            <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
+            <br>
+            <button type="reset" id="reset">Cancel</button>
+            <button type="button" id="ok">OK</button>
+        </form>
+        
+        <output id="post-list">
+            <!--This is where the posts go-->
+        </output>
+    </main>
     <script src="scripts/deletePost.js"></script>
     <script src="scripts/updatePost.js"></script>
     <script src="scripts/main.js" type="module"></script>
