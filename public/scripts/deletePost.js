@@ -1,5 +1,8 @@
-// Delete
-function deletePostArticle(event) {
+/**
+ * Deletes a post from the page
+ */
+function deletePost(event) {
+    console.log('test');
     let post = {
         // select the child
         title: event.parentNode.querySelector('h2').value,
@@ -12,7 +15,10 @@ function deletePostArticle(event) {
     event.parentNode.remove();
 }
 
-// Deletes from local storage
+/**
+ * Deletes a post object from local storage
+ * @param {object} post - The post to delete
+ */
 function deletePostStorage(post) {
     let allPosts = JSON.parse(localStorage.getItem('data'));
     allPosts = allPosts !== null ? allPosts : [];

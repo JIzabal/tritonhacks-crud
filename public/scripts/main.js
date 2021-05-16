@@ -1,21 +1,13 @@
-import { addPost, createPostObject } from './addDialog.js';
+import { createPost } from './createPost.js';
+import { readPost } from './readPost.js';
 
 function init() {
 
     // Ok button confirms addition of post
     const okBtn = document.querySelector("#ok");
-    okBtn.addEventListener("click", addPost);
+    okBtn.addEventListener("click", createPost);
     
-    display();
-}
-
-function display() {
-    let allPosts = JSON.parse(localStorage.getItem('data'));
-    allPosts = allPosts !== null ? allPosts : [];
-    for (const post of allPosts) {
-        let output = document.querySelector('#post-list');
-        output.insertAdjacentHTML('beforeend', createPostObject(post));
-    }
+    readPost();
 }
 
 window.addEventListener('DOMContentLoaded', init);
