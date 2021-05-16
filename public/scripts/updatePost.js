@@ -1,21 +1,21 @@
 /**
  * Edits a post on the page
  */
-function updatePost(event) {
+function updatePost(editBtn) {
     
-    event.parentNode.children[0].classList.toggle('editable');
-    event.parentNode.children[0].toggleAttribute('contenteditable');
+    editBtn.parentNode.children[0].classList.toggle('editable');
+    editBtn.parentNode.children[0].toggleAttribute('contenteditable');
 
-    event.parentNode.children[1].classList.toggle('editable');
-    event.parentNode.children[1].toggleAttribute('contenteditable');
+    editBtn.parentNode.children[1].classList.toggle('editable');
+    editBtn.parentNode.children[1].toggleAttribute('contenteditable');
 
-    if (!event.parentNode.children[0].isContentEditable) {
+    if (!editBtn.parentNode.children[0].isContentEditable) {
 
         // Push to local storage
         let post = {
-            title: event.parentNode.querySelector('h2').textContent,
-            summary: event.parentNode.querySelector('P').textContent,
-            id: event.parentNode.id
+            title: editBtn.parentNode.querySelector('h2').textContent,
+            summary: editBtn.parentNode.querySelector('P').textContent,
+            id: editBtn.parentNode.id
         };
 
         updatePostStorage(post);

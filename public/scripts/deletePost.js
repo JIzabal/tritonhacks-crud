@@ -1,18 +1,18 @@
 /**
  * Deletes a post from the page
  */
-function deletePost(event) {
-    console.log('test');
+function deletePost(deleteBtn) {
+    
     let post = {
         // select the child
-        title: event.parentNode.querySelector('h2').value,
-        summary: event.parentNode.querySelector('p').value,
-        id: event.parentNode.id
+        title: deleteBtn.parentNode.querySelector('h2').value,
+        summary: deleteBtn.parentNode.querySelector('p').value,
+        id: deleteBtn.parentNode.id
     };
 
     deletePostStorage(post);
 
-    event.parentNode.remove();
+    deleteBtn.parentNode.remove();
 }
 
 /**
