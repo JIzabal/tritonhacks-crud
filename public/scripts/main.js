@@ -1,5 +1,5 @@
 import { createPost } from './createPost.js';
-import { readPost } from './readPost.js';
+import { readPosts } from './readPosts.js';
 
 function init() {
 
@@ -7,7 +7,7 @@ function init() {
     const okBtn = document.querySelector("#ok");
     okBtn.addEventListener("click", createPost);
     
-    readPost();
+    readPosts();
 }
 
 window.addEventListener('DOMContentLoaded', init);

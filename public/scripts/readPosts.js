@@ -3,7 +3,7 @@ import { createPostHTML } from './createPost.js';
 /**
  * Display posts saved in local storage
  */
-function readPost() {
+function readPosts() {
 
     let allPosts = JSON.parse(localStorage.getItem('data'));
     allPosts = allPosts !== null ? allPosts : [];
@@ -15,4 +15,4 @@ function readPost() {
 
 }
 
-export { readPost };
+export { readPosts };
