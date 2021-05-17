@@ -1,34 +1,31 @@
 /**
  * Deletes a post from the page
+ * @param {object} deleteBtn - An object that represents the HTML button element
  */
 function deletePost(deleteBtn) {
-    
-    let post = {
-        // select the child
-        title: deleteBtn.parentNode.querySelector('h2').value,
-        summary: deleteBtn.parentNode.querySelector('p').value,
-        id: deleteBtn.parentNode.id
-    };
 
-    deletePostStorage(post);
+    let post = deleteBtn.parentNode;
+    deletePostStorage(post.id);
 
-    deleteBtn.parentNode.remove();
+    post.remove();
 }
 
 /**
  * Deletes a post object from local storage
- * @param {object} post - The post to delete
+ * @param {string} postID - The post id that refers to the post to delete
  */
-function deletePostStorage(post) {
+function deletePostStorage(postID) {
+
     let allPosts = JSON.parse(localStorage.getItem('data'));
     allPosts = allPosts !== null ? allPosts : [];
 
     for (i = 0; i < allPosts.length; i++) {
-        if (post.id === allPosts[i].id) {
+        if (postID === allPosts[i].id) {
             allPosts.splice(i, 1);
             break;
         }
     }
+    
     localStorage.setItem('data', JSON.stringify(allPosts));
 }
 
