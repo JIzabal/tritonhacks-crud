@@ -17,7 +17,6 @@ function deletePost(deleteBtn) {
 function deletePostStorage(postID) {
 
     let allPosts = JSON.parse(localStorage.getItem('data'));
-    allPosts = allPosts !== null ? allPosts : [];
 
     for (i = 0; i < allPosts.length; i++) {
         if (postID === allPosts[i].id) {
@@ -28,4 +27,3 @@ function deletePostStorage(postID) {
     
     localStorage.setItem('data', JSON.stringify(allPosts));
 }
-

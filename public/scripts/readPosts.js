@@ -6,10 +6,13 @@ import { createPostHTML } from './createPost.js';
 function readPosts() {
 
     let allPosts = JSON.parse(localStorage.getItem('data'));
-    allPosts = allPosts !== null ? allPosts : [];
+    
+    if (allPosts === null) {
+        allPosts = [];
+    }
 
+    let output = document.querySelector('#post-list');
     for (const post of allPosts) {
-        let output = document.querySelector('#post-list');
         output.insertAdjacentHTML('beforeend', createPostHTML(post));
     }
 

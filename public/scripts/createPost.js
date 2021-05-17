@@ -26,9 +26,12 @@ function createPost(event) {
  * @param {object} post - The post contents to save
  */
 function savePost(post) {
+    
     let allPosts = JSON.parse(localStorage.getItem('data'));
 
-    allPosts = allPosts !== null ? allPosts : [];
+    if (allPosts === null) {
+        allPosts = [];
+    }
 
     allPosts.push(post);
 
