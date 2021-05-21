@@ -1,4 +1,5 @@
 import { readPosts } from './readPosts.js';
+import { createPost } from './createPost.js';
 
 function init() {
 
