@@ -1,5 +1,7 @@
 /**
  * Edits a post on the page
+ * @param {object} editBtn - An object that represents the HTML button element
+ * that was clicked, which in this case is the edit button
  */
 function updatePost(editBtn) {
     

@@ -1,6 +1,7 @@
 /**
  * Deletes a post from the page
  * @param {object} deleteBtn - An object that represents the HTML button element
+ * that was clicked, which in this case is the delete button
  */
 function deletePost(deleteBtn) {
 
