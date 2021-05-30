@@ -16,7 +16,7 @@ function updatePost(editBtn) {
         // Push to local storage
         let post = {
             title: editBtn.parentNode.querySelector('h2').textContent,
-            summary: editBtn.parentNode.querySelector('P').textContent,
+            summary: editBtn.parentNode.querySelector('p').textContent,
             id: editBtn.parentNode.id
         };
 
