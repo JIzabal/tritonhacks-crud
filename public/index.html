@@ -6,30 +6,33 @@
     <title>tritonhacks crud</title>
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://kit.fontawesome.com/dfc18fddcc.js" crossorigin="anonymous"></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/deletePost.js" defer="defer"></script>
+    <script src="scripts/updatePost.js" defer="defer"></script>
 </head>
 <body>
     <main>
         <h1>Tritonhacks Crud</h1>
 
         <form>
-            <label for="title">Title</label>
-            <br>
-            <input type="text" name="title" id="title">
-            <br>
-            <label for="summary">Summary</label>
-            <br>
-            <textarea name="summary" id="summary">"Write something here" #Currently uneditable</textarea>
-            <br>
-            <button type="reset" id="reset">Cancel</button>
-            <button type="button" id="ok">OK</button>
+            <ul>
+                <li>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title">
+                </li>
+                <li>
+                    <label for="summary">Summary</label>
+                    <textarea id="summary" cols="30" rows="10">Some default value</textarea>
+                </li>
+                <li class="button">
+                    <button type="button">Create post!</button>
+                </li>
+            </ul>
         </form>
         
-        <output id="post-list">
+        <ul id="post-list">
             <!--This is where the posts go-->
-        </output>
+        </ul>
     </main>
-    <script src="scripts/deletePost.js"></script>
-    <script src="scripts/updatePost.js"></script>
-    <script src="scripts/main.js" type="module"></script>
 </body>
 </html>

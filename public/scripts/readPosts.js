@@ -11,9 +11,9 @@ function readPosts() {
         allPosts = [];
     }
 
-    let output = document.querySelector('#post-list');
+    let postList = document.querySelector('#post-list');
     for (const post of allPosts) {
-        output.insertAdjacentHTML('beforeend', createPostHTML(post));
+        postList.insertAdjacentHTML('beforeend', createPostHTML(post));
     }
 
 }

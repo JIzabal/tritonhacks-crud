@@ -3,22 +3,40 @@
  */
 function createPost(event) {
 
-    let output = document.querySelector('#post-list');
+    let postList = document.querySelector('#post-list');
 
-    // Object literal stores the post values
     let post = {
         id: (new Date().getTime()).toString(),
         title: document.querySelector('#title').value,
         summary: document.querySelector('#summary').value
     };
 
-    // Clear the form entries
     document.querySelector('#title').value = '';
     document.querySelector('#summary').value = '';
 
-    output.insertAdjacentHTML('beforeend', createPostHTML(post));
+    postList.insertAdjacentHTML('beforeend', createPostHTML(post));
 
     savePost(post);
+}
+
+/**
+ * This is the template HTML for a blog post, and all that needs to be done
+ * is filling in the id, title, and summary for a post.
+ * @param {object} post - The post to translate into HTML
+ * @returns {string} HTML representing the post passed in
+ */
+function createPostHTML(post) {
+
+    let postHTML = 
+        `<li id="${post.id}">
+            <h2>${post.title}</h2>
+            <p>${post.summary}</p>
+            <br>
+            <button onclick="updatePost(this)"><i class="fas fa-edit"></i> Edit</button>
+            <button onclick="deletePost(this)"><i class="fas fa-trash"></i> Delete</button>
+        </li>`;
+
+    return postHTML;
 }
 
 /**
@@ -36,26 +54,6 @@ function savePost(post) {
     allPosts.push(post);
 
     localStorage.setItem('data', JSON.stringify(allPosts));
-}
-
-/**
- * This is the template HTML for a blog post, and all that needs to be done
- * is filling in the id, title, and summary for a post.
- * @param {object} post - The post to translate into HTML
- * @returns {string} HTML representing the post passed in
- */
-function createPostHTML(post) {
-
-    let postHTML = 
-        `<article id="${post.id}">
-            <h2>${post.title}</h2>
-            <p>${post.summary}</p>
-            <br>
-            <button onclick="updatePost(this)"><i class="fas fa-edit"></i> Edit</button>
-            <button onclick="deletePost(this)"><i class="fas fa-trash"></i> Delete</button>
-        </article>`;
-
-    return postHTML;
 }
 
 export { createPost, createPostHTML };

@@ -6,9 +6,9 @@
 function deletePost(deleteBtn) {
 
     let post = deleteBtn.parentNode;
-    deletePostStorage(post.id);
-
     post.remove();
+    
+    deletePostStorage(post.id);
 }
 
 /**

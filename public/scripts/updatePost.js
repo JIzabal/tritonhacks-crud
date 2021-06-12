@@ -5,41 +5,35 @@
  */
 function updatePost(editBtn) {
     
-    editBtn.parentNode.children[0].classList.toggle('editable');
-    editBtn.parentNode.children[0].toggleAttribute('contenteditable');
+    let post = editBtn.parentNode;
+    let postTitle = post.children[0];
+    let postSummary = post.children[1];
 
-    editBtn.parentNode.children[1].classList.toggle('editable');
-    editBtn.parentNode.children[1].toggleAttribute('contenteditable');
+    postTitle.toggleAttribute('contenteditable');
+    postSummary.toggleAttribute('contenteditable');
 
-    if (!editBtn.parentNode.children[0].isContentEditable) {
+    postTitle.classList.toggle('editable');
+    postSummary.classList.toggle('editable');
 
-        // Push to local storage
-        let post = {
-            title: editBtn.parentNode.querySelector('h2').textContent,
-            summary: editBtn.parentNode.querySelector('p').textContent,
-            id: editBtn.parentNode.id
-        };
-
-        updatePostStorage(post);
+    if (!postTitle.isContentEditable && !postSummary.isContentEditable) {
+        updatePostStorage(post.id, postTitle.textContent, postSummary.textContent);
     }
 }
 
 /**
  * Edits a post object in local storage
- * @param {object} post - The post to edit
+ * @param {string} postID - The post id that refers to the post to update
+ * @param {string} newPostTitle - The updated post title
+ * @param {string} newPostSummary - The updated post summary
  */
-function updatePostStorage(post) {
+ function updatePostStorage(postID, newPostTitle, newPostSummary) {
 
     let allPosts = JSON.parse(localStorage.getItem('data'));
-    allPosts = allPosts !== null ? allPosts : [];
 
-    for (i = 0; i < allPosts.length; i++) {
-
-        if (post.id === allPosts[i].id) {
-            
-            // Update post values
-            allPosts[i].title = post.title;
-            allPosts[i].summary = post.summary;
+    for (currPost of allPosts) {
+        if (postID === currPost.id) {
+            currPost.title = newPostTitle;
+            currPost.summary = newPostSummary;
             break;
         }
     }

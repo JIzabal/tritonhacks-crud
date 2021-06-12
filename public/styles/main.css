@@ -1,4 +1,10 @@
-article {
+#post-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+#post-list > li {
     border: 2px solid black;
     text-align: center;
     padding: 10px;
@@ -8,11 +14,6 @@ article {
 
 .editable {
     border: 2px solid rgb(36, 74, 243);
-}
-
-output {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 p {
