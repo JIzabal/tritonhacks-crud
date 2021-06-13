@@ -30,7 +30,7 @@ function updatePost(editBtn) {
 
     let allPosts = JSON.parse(localStorage.getItem('data'));
 
-    for (currPost of allPosts) {
+    for (const currPost of allPosts) {
         if (postID === currPost.id) {
             currPost.title = newPostTitle;
             currPost.summary = newPostSummary;
